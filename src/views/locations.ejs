@@ -1,0 +1,28 @@
+<%- include('includes/header') %>
+<div class="container">
+    <h2 class="text-center">Rick and Morty Locations: <%= totalCount %></h1>
+    <hr>
+    <div class="row"> 
+        <%- include('forms/locationsSearch') %>
+        <%- include('includes/pagination') %>
+    </div>
+    <table class="table table-striped table-bordered" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Dimension</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% locations.forEach(location => { %>
+            <tr>
+                <td><%= location.name %></td>
+                <td><%= location.type %></td>
+                <td><%= location.dimension %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<%- include('includes/footer') %>

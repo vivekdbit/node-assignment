@@ -1,0 +1,12 @@
+<form action="/characters" method="get">
+    <label for="status">Filter by Status:</label>
+    <select name="status" id="status">
+        <option value="">All</option>
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+        <option value="unknown">Unknown</option>
+    </select>
+    <input type="text" name="name" placeholder="Search by name..." value="<%= filters.name %>">
+    <input type="text" name="species" placeholder="Search by species..." value="<%= filters.species %>">
+    <button type="submit">Apply Filter</button>
+</form>
