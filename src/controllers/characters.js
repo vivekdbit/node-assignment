@@ -42,7 +42,6 @@ router.get('/generate-profile-doc/:id', async (req, res) => {
 
         // Generate the PDF
         const pdfFileName = characterService.generatePDF(character.data);
-        //console.log(pdfFileName);
 
         // Set the response headers for the download
         res.setHeader('Content-Type', 'application/pdf');
