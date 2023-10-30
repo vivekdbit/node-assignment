@@ -1,8 +1,5 @@
-# Node modules
+# Ignore node_modules directory
 node_modules/
 
-# Environment variables
+# Ignore .env files
 .env
-
-# Local files
-public/
