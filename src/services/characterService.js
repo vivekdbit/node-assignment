@@ -13,7 +13,8 @@ function generatePDF(character) {
 
     const filePath = path.join(pdfDirectory, fileName);
     // Pipe the PDF content to a writable stream (in this case, a file)
-    doc.pipe(fs.createWriteStream(filePath));
+    var writeStream = fs.createWriteStream(filePath);
+    doc.pipe(writeStream);
 
     // Add content to the PDF
     doc.fontSize(14).text('Character Profile', { align: 'center' });
@@ -23,7 +24,6 @@ function generatePDF(character) {
 
     // End the PDF document
     doc.end();
-    
     return filePath;
 }
 

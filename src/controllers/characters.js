@@ -30,14 +30,14 @@ router.get('/', async (req, res) => {
 /**
  * Download character PDF.
  */
-router.get('/generate-profile-doc/:id', async (req, res) => {
+router.get('/generate-profile-doc/:id', async (req, res, next) => {
     
     try {
         const characterId = parseInt(req.params.id);
         const character = await rickAndMortyService.getCharacter(characterId);
         
         if (!character) {
-            res.status(404).json({ error: 'Character not found' });
+            return res.status(404).json({ error: 'Character not found' });
         }
 
         // Generate the PDF
@@ -45,12 +45,12 @@ router.get('/generate-profile-doc/:id', async (req, res) => {
 
         // Set the response headers for the download
         res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', `attachment; filename=${character.data.name}`);
+        res.setHeader('Content-Disposition', `attachment; filename=${character.data.name}.pdf`);
 
         // Send the PDF file to the client for download
         res.sendFile(pdfFileName);
     } catch (error) {
-        next(error);
+        next(error); // Pass any error that occurs in this route handler to the error-handling middleware
     }
 });
 
