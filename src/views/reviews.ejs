@@ -6,6 +6,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Title</th>
                 <th>Episode ID</th>
                 <th>Reviews</th>
                 <th>Ratings</th>
@@ -15,6 +16,7 @@
             <% reviews.forEach(review => { %>
             <tr>
                 <td><%= review.id %></td>
+                <td><%= review.title %></td>
                 <td><%= review.episode_id %></td>
                 <td><%= review.review %></td>
                 <td><%= review.rating %></td>
